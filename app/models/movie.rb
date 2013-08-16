@@ -5,10 +5,10 @@ class Movie < ActiveRecord::Base
 
   def self.find_movies_by_director(id)
   	@director = Movie.find(id).director
-    unless @director.empty?
-  	  Movie.find_all_by_director(@director)
+    if @director.nil? || @director.empty?
+  	  []
     else
-      []
+      Movie.find_all_by_director(@director)
     end
   end
 
