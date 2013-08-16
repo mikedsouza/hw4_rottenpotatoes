@@ -14,6 +14,9 @@ Rottenpotatoes::Application.routes.draw do
   #   resources :products
   resources :movies
 
+  #get 'movies/search_by_director', :as => :movies_by_same_director
+  match 'movies/:id/search_by_director', to:  'movies#search_by_director', :as => :movies_by_director
+
   # Sample resource route with options:
   #   resources :products do
   #     member do

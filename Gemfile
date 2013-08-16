@@ -12,6 +12,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'launchy'
+  gem 'ZenTest'
   gem 'rspec-rails'
   gem 'simplecov'
 end

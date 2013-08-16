@@ -64,4 +64,16 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
+  def search_by_director
+    @movies = Movie.find_movies_by_director(params[:id])
+    if @movies == []
+      flash[:notice] = "'#{Movie.find(params[:id]).title}' has no director info"
+      redirect_to movies_path
+    else
+      @movies
+    end
+    #@movie = Movie.find(params[:id])
+    #@movie.find_movies_by_director(params[:id]) // using an instance method versus a class method
+  end
+
 end
